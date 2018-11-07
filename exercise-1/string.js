@@ -31,46 +31,46 @@ function snake_case(string) {
 console.log(snake_case("Hello world"));
 
 function leet(string) {
-	for (var i = 0; i <= string.length; i++) {
-		if(string[i] === 'a' || string[i] === 'A'){
-			string.replace(i, "4");
-		}else if(string[i] === 'e' || string[i] === 'E'){
-			string.replace(i, "3");
-		}else if(string[i] === 'i' || string[i] === 'I'){
-			string.replace(i, "1");
-		}else if(string[i] === 'o' || string[i] === 'O'){
-			string.replace(i, "0")
-		}else if(string[i] === 'u' || string[i] === 'U'){
-			string.replace(i, "_")
-		}else if(string[i] === 'y' || string[i] === 'Y'){
-			string.replace(i, "7")
-		}
-	}
+    string = string.toLowerCase();
+	string = string.replace(/a/g, "4");
+    string = string.replace(/e/g, "3");
+    string = string.replace(/i/g, "1");
+    string = string.replace(/o/g, "0");
+    string = string.replace(/u/g, "_");
+    string = string.replace(/y/g, "7");
+
 	return string;
 }
 
-console.log(leet("anaconda"));
+console.log(leet("anaconda") );
 
-function verlan(chaine) {
-	chaine = chaine.split(" ");
-	for (var i = 0; i <= chaine.length; i++) {
-		chaine[i] = reverse(chaine[i]);
+function verlan(string) {
+	chaine = string.split(" ");
+	for (var i in chaine) {
+	    test = "";
+		for(var j in chaine[i]) {
+            test = test + chaine[i][chaine[i].length - j - 1];
+        }
+        chaine[i] = test;
 	}
 	return chaine.join(" ");
 }
 
-function reverse(chaine) {
-	var newChaine = "";
-	for(var i = chaine.length - 1; i >=0; i--) {
-		newChaine += chaine[i];
-	}
-	return newChaine;
-}
-
-console.log(verlan("hello world"));
+console.log(verlan("Hello world"));
 
 function yoda(string){
-    return string.split(" ").reverse().join(" ")
+    return string.split(" ").reverse().join(" ");
 }
 
 console.log(yoda("Hello world"));
+
+function vig(input, key) {
+    array = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    output = "";
+    for (var i = 0; i < input.length; i++){
+        output += array[(array.indexOf(key[i % key.length]) + array.indexOf(input[i])) % 26];
+    }
+    return output;
+}
+
+console.log(vig("wikipedia", "crypto"));
