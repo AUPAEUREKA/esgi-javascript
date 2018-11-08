@@ -5,8 +5,8 @@ function ucfirst(string) {
 console.log(ucfirst("hello world"));
 
 function capitalize(string) {
-	word = string.split(' ');
-	for (var i in word) {
+	let word = string.split(' ');
+	for (let i in word) {
 		word[i] = ucfirst(word[i][0]) + word[i].substring(1);
 	}
 	return word.join(" ");
@@ -45,10 +45,10 @@ function leet(string) {
 console.log(leet("anaconda") );
 
 function verlan(string) {
-	chaine = string.split(" ");
-	for (var i in chaine) {
-	    test = "";
-		for(var j in chaine[i]) {
+	let chaine = string.split(" ");
+	for (let i in chaine) {
+	    let test = "";
+		for(let j in chaine[i]) {
             test = test + chaine[i][chaine[i].length - j - 1];
         }
         chaine[i] = test;
